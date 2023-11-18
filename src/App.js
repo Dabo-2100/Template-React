@@ -1,4 +1,6 @@
 import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage";
+import FormPage from "./pages/Form";
 import { Route, Routes, BrowserRouter, Link, Outlet } from "react-router-dom";
 function App() {
   return (
@@ -10,8 +12,8 @@ function App() {
           <Link className="m-3" to="/">
             Home
           </Link>
-          <Link className="m-3" to="/testpath">
-            Test Path
+          <Link className="m-3" to="/login">
+            Login
           </Link>
           <Link className="m-3" to="/anyThingElese">
             Page 404
@@ -20,7 +22,8 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<HomePage />} />
-            <Route path="testpath" element={"Router is working"} />
+            <Route path="form" element={<FormPage />} />
+            <Route path="login" element={<LoginPage />} />
             <Route path="*" element={"Page 404"} />
           </Route>
         </Routes>
