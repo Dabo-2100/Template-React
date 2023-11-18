@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import HomePage from "./pages/HomePage/HomePage";
+import { Route, Routes, BrowserRouter, Link, Outlet } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        {/* Put Your Layout here */}
+        {/* This is Part To Show How Links Work */}
+        <div className="col-12 alert alert-success">
+          <Link className="m-3" to="/">
+            Home
+          </Link>
+          <Link className="m-3" to="/testpath">
+            Test Path
+          </Link>
+          <Link className="m-3" to="/anyThingElese">
+            Page 404
+          </Link>
+        </div>
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="testpath" element={"Router is working"} />
+            <Route path="*" element={"Page 404"} />
+          </Route>
+        </Routes>
+        <Outlet />
+      </BrowserRouter>
     </div>
   );
 }
